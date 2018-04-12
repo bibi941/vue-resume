@@ -1,21 +1,25 @@
 <template>
   <div id='topBar'>
-      <div class='logo'>
-          VueResumer
-      </div>
-      <div class="actions">
-          <button>注册</button>
-          <button>登录</button>
-      </div>
+    <div class='logo'>
+      VueResumer
+    </div>
+    <div class="actions">
+      <el-button type="primary">注册</el-button>
+      <el-button>登录</el-button>
+    </div>
   </div>
 </template>
 
 <style lang='scss'>
-#topBar{
-    border: 1px solid green;
-    min-height: 100px;
+  #topBar {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 16px;
-}
+    padding: 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
 </style>

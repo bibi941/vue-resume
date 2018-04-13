@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Topbar class="topbar"></Topbar>
+    <Topbar class="topbar"/>
     <main>
-      <Editor class="editor"></Editor>
-      <Preview class="preview"></Preview>
+      <Editor class="editor"/>
+      <Preview class="preview"/>
     </main>
 
   </div>
@@ -51,7 +51,7 @@ main {
         background: white;
         box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
         border-radius: 5px;
-        overflow: hidden;
+        overflow: auto;
     }
     .preview {
         flex: 1;

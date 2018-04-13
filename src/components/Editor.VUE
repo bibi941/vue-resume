@@ -10,26 +10,58 @@
       </ol>
     </nav>
     <ol class="panes">
-      <li v-bind:class='{active:currentTab === 0}'>tab1</li>
-      <li v-bind:class='{active:currentTab === 1}'>tab2</li>
-      <li v-bind:class='{active:currentTab === 2}'>tab3</li>
-      <li v-bind:class='{active:currentTab === 3}'>tab4</li>
-      <li v-bind:class='{active:currentTab === 4}'>tab5</li>
-      <li v-bind:class='{active:currentTab === 5}'>tab6</li>
+      <li v-bind:class='{active:currentTab === 0}'>
+        <ProfileEditor v-bind:profile='profile' />
+      </li>
+      <li v-bind:class='{active:currentTab === 1}'>
+        <WorkHistory v-bind:workHistory='workHistory' />
+      </li>
+      <li v-bind:class='{active:currentTab === 2}'>
+        <h2>学习经历</h2>
+      </li>
+      <li v-bind:class='{active:currentTab === 3}'>
+        <h2>项目经验</h2>
+      </li>
+      <li v-bind:class='{active:currentTab === 4}'>
+        <h2>获奖情况</h2>
+      </li>
+      <li v-bind:class='{active:currentTab === 5}'>
+        <h2>联系方式</h2>
+      </li>
     </ol>
   </div>
 </template>
+
 <script>
+  import ProfileEditor from './ProfileEditor'
+  import WorkHistory from './WorkHistory'
   export default {
+    components: {
+      ProfileEditor,
+      WorkHistory
+    },
     data() {
       return {
+        //   tab切换
         currentTab: 0,
-        icons:['credentials_icon','gongwenbao','book','xiangmu1','icon--','phone']
+        icons: ['credentials_icon', 'gongwenbao', 'book', 'xiangmu1', 'icon--', 'phone'],
+        // 表单数据
+        profile: {
+          name: '',
+          city: '',
+          bitrh: ''
+        },
+        workHistory: [{
+          company: '',
+          content: ''
+        }]
       }
-    }
+    },
+    methods: {}
   }
 
 </script>
+
 <style lang='scss'>
   #editor {
     display: flex;
@@ -54,11 +86,23 @@
       }
     }
     .panes {
+      flex: 1;
       >li {
         display: none;
+        padding: 30px;
+        height: 100%;
+        overflow: auto;
         &.active {
           display: block;
         }
+      }
+    }
+    .workContainer {
+      position: relative;
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
       }
     }
   }

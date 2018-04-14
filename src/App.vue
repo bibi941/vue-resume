@@ -5,7 +5,7 @@
       <Editor v-bind:resume='resume' class="editor" />
       <Preview  v-bind:resume='resume' class="preview" />
     </main>
-     <el-button type="primary" v-on:click='exitPreview' class="exitPreview" style='background:rgb(59, 167, 118);'>退出预览</el-button>
+     <el-button type="primary" v-on:click='exitPreview'  id="exitPreview" class="exitPreview" style='background:rgb(59, 167, 118);'>退出预览</el-button>
   </div>
   
 </template>
@@ -96,7 +96,7 @@
       max-width: 960px;
       margin: 40px auto;
   }
-  .exitPreview{
+  #exitPreview{
     display: none;
   }
   .previewMode .exitPreview{

@@ -99,7 +99,7 @@
   #exitPreview{
     display: none;
   }
-  .previewMode .exitPreview{
+  .previewMode #exitPreview{
   display: inline-block;
   position: fixed;
   right: 20px;

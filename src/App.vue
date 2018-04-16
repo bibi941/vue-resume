@@ -2,8 +2,8 @@
   <div id="app" v-bind:class="{previewMode:previewMode}">
     <Topbar  class="topbar" v-on:preview="preview"/>
     <main>
-      <Editor v-bind:resume='resume' class="editor" />
-      <Preview  v-bind:resume='resume' class="preview" />
+      <Editor class="editor" />
+      <Preview class="preview" />
     </main>
      <el-button type="primary" v-on:click='exitPreview'  id="exitPreview" class="exitPreview" style='background:rgb(59, 167, 118);'>退出预览</el-button>
   </div>
@@ -14,21 +14,15 @@
   import Topbar from './components/Topbar'
   import Editor from './components/Editor'
   import Preview from './components/Preview'
+  import store from './store/index'
 
   export default {
     data() {
       return {
         previewMode:false,
-        resume: {
-          // 表单数据
-          profile: {  name: '',  city: '',  birth: ''},
-          workHistory: [{  company: '',  content: '',}],
-          studyHistory: [{  school: '',  time: '',  degree: '', }],
-          projects: [{  name: '',  content: ''}],awards: [{  name: ''}],
-          contancts: {  qq: '',  wechat: '',  email: '',  phone: '',}
-        }
       }
     },
+    store,
     methods:{
         preview(){
             this.previewMode = true

@@ -23,13 +23,13 @@
         <ArrayEditor v-bind:items='resume.projects' v-bind:labels="{name:'项目名称',content:'具体内容'}" title='项目经验' />
       </li>
       <li v-bind:class='{active:currentTab === 4}'>
-        <ArrayEditor v-bind:items='resume.awards' v-bind:labels="{name:'获奖详情'}" title='获奖情况' />
+        <ArrayEditor v-bind:items='resume.awards' v-bind:labels="{name:'获奖详情',time:'时间',content:'具体内容'}" title='获奖情况' />
       </li>
       <li v-bind:class='{active:currentTab === 5}'>
         <h2>联系方式</h2>
         <el-form>
           <el-form-item label="qq">
-            <el-input v-model="resume.contancts.name"></el-input>
+            <el-input v-model="resume.contancts.qq"></el-input>
           </el-form-item>
           <el-form-item label="微信">
             <el-input v-model="resume.contancts.wechat"></el-input>
@@ -49,13 +49,12 @@
 <script>
   import ProfileEditor from './ProfileEditor'
   import ArrayEditor from './ArrayEditor'
-  
+
   export default {
     components: {
       ProfileEditor,
       ArrayEditor,
     },
-    props:['resume'],
     data() {
       return {
         //   tab切换
@@ -63,7 +62,11 @@
         icons: ['credentials_icon', 'gongwenbao', 'book', 'xiangmu1', 'icon--', 'phone'],
       }
     },
-    methods: {}
+    computed: {
+      resume() {
+        return this.$store.state.resume
+      }
+    }
   }
 
 </script>
